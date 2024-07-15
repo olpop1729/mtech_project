@@ -1,0 +1,10 @@
+{
+    "bbu": "bert-base-uncased",
+    "bbc": "bert-base-cased",
+    "blu": "bert-large-uncased",
+    "blc": "bert-large-cased",
+    "betobc": "dccuchile/bert-base-spanish-wwm-cased",
+    "betobu": "dccuchile/bert-base-spanish-wwm-uncased",
+    "rb": "roberta-base",
+    "rl": "roberta-large"
+}
