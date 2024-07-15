@@ -1,0 +1,8 @@
+bert-base-uncased
+bert-base-cased
+bert-large-uncased
+bert-large-cased
+roberta-base
+dccuchile/bert-base-spanish-wwm-uncased
+dccuchile/bert-base-spanish-wwm-cased
+dccuchile/albert-xxlarge-spanish
