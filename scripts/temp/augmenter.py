@@ -98,7 +98,7 @@ df_new = pd.DataFrame()
 df_new['text'] = train_augments_texts
 df_new['multiclass'] = train_augments_labels
 
-df_new.to_csv('hahahah.csv', index=False)
+df_new.to_csv('augented_file.csv', index=False)
 
 len(train_augments_texts)
 
