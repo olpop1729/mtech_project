@@ -8,6 +8,9 @@ This project investigates the application of BERT and BERT-like models for class
 2) Navigate inside the project folder. To create a virtual environment, use the command: `python3 -m venv .`
 3) Execute the setup.py python script. `python setup.py`
 
+## **Required Libraries**
+1) PyTorch
+2) transformers
 
 ## **Script Details:**
 1) `bert_evaluate.py` contains script for evaluating the saved fine-tuned models on validation and test data. Prints the classification report on the console.
