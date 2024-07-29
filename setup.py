@@ -21,6 +21,11 @@ path_check = 0
 for k, v in path_dict.items():
     if not os.path.exists(v):
         print(f'\tUnable to locate diretory: {v}')
+        try:
+            os.mkdir(v)
+            path_check += 1
+        except FileNotFoundError as err:
+            print(err)
     else:
         print(f'\tFound: {v}')
         path_check += 1
