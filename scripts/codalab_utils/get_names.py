@@ -1,13 +1,9 @@
 import os
+import json
 
-data_path = '/home/coep/general/bert/codalab/data/'
-train_path = '/home/coep/general/bert/codalab/data/train/'
-val_path = '/home/coep/general/bert/codalab/data/val/'
-test_path = '/home/coep/general/bert/codalab/data/test/'
-embed_path = '/home/coep/general/bert/codalab/data/embeds/'
-models_path = '/home/coep/general/bert/codalab/models/'
-
-pretrained_models = '/home/coep/general/bert/codalab/scripts/codalab_utils/pretrained_model_names.txt'
+path_dict = {}
+with open('../path_names.json', 'r') as f:
+    path_dict = json.load(f)
 
 ENG = 'english'
 ESP = 'spanish'
@@ -38,11 +34,12 @@ class GenNames():
 
 class Names():
 	def __init__(self):
-		self.val_path = val_path
-		self.train_path = train_path
-		self.test_path = test_path
-		self.models_path = models_path
-		
+		self.val_path = path_dict['val_path']
+		self.train_path = path_dict['train_path']
+		self.test_path = path_dict['test_path']
+		self.models_path = path_dict['models_path']
+		self.embed_path = path_dict['embed_path']
+		 
 	def select_saved_model(self, param=None):
 		if param == 'hf':
 			model_list = self.hf_models()
@@ -95,7 +92,7 @@ class Names():
 			return [i for i in res if lang in i]
 			
 	def embed_files(self, lang=None):
-		res = [i for i in os.listdir(embed_path) if i.endswith('.pt')]
+		res = [i for i in os.listdir(self.embed_path) if i.endswith('.pt')]
 		if not lang:
 			return res
 		else:
@@ -129,29 +126,28 @@ class Names():
 			
 	def embed_files(self, lang=None):
 		if not lang:
-			return os.listdir(embed_path)
+			return os.listdir(self.embed_path)
 		else:
-			return [i for i in os.listdir(embed_path) if lang in i]
+			return [i for i in os.listdir(self.embed_path) if lang in i]
 	
 	def train_files(self, lang=None):
 		if not lang:
-			return os.listdir(train_path)
+			return os.listdir(self.train_path)
 		else:
-			return [i for i in os.listdir(train_path) if lang in i]
+			return [i for i in os.listdir(self.train_path) if lang in i]
 	
 	def val_files(self, lang=None):
 		if not lang:
-			return os.listdir(val_path)
+			return os.listdir(self.val_path)
 		else:
-			return [i for i in os.listdir(val_path) if lang in i]
+			return [i for i in os.listdir(self.val_path) if lang in i]
 			
 	def test_files(self, lang=None):
 		if not lang:
-			return os.listdir(test_path)
+			return os.listdir(self.test_path)
 		else:
-			return [i for i in os.listdir(test_path) if lang in i]
+			return [i for i in os.listdir(self.test_path) if lang in i]
 			
 #if __name__ == "__main__":
 #	test = GetFileNames()
 #	print(test.train_files())
-
